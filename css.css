@@ -1,0 +1,90 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: #000000;
+    scroll-behavior: smooth; 
+}
+
+/* Full-screen hero section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+    background-color: #000; /* Dark background for contrast */
+    color: white;
+    position: relative;
+}
+
+/* Main heading style */
+h1 {
+    font-size: 3em;
+    margin: 0;
+
+}
+
+/* Arrow styling */
+.arrow {
+    color: aliceblue;
+    position: absolute;
+    bottom: 20px;
+    font-size: 2em;
+    animation: bounce 1s infinite;
+    cursor: pointer;
+}
+
+/* Bouncing arrow animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Hidden content initially, which will appear on scroll */
+.content {
+    background-color: white;
+    color: black;
+    padding: 50px 20px;
+    text-align: center;
+    font-size: 1.2em;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Show content after scrolling */
+.content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add more sections */
+.content h2 {
+    font-size: 2.5em;
+}
+
+/* Ensures smooth scrolling to content section */
+#about, #projects {
+    padding: 50px 20px;
+}
+.logo img {
+    width: 100px; /* Adjust the size of the image */
+    height: auto;
+    position: fixed; /* Fixes the position relative to the viewport */
+    top: 20px; /* Distance from the top of the screen */
+    right: 20px; /* Distance from the right of the screen */
+    z-index: 10; /* Ensures the image stays above other content */
+}
+
+/* Optional: Adding some styling to prevent content overlap */
+body {
+    padding-top: 120px; /* Gives space at the top for the image */
+}

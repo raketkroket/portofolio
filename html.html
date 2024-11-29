@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chassidy Doest</title>
+    <link rel="stylesheet" href="csss.css">
+    <script src="javaa.js" defer></script>
+</head>
+<body>
+    <!-- Header with 3 lines burger menu -->
+    <div class="HeaderModule-logoNav">
+        <div class="BurgerMenu-icon" onclick="toggleMenu()">
+            <div class="BurgerMenu-icon-line"></div>
+            <div class="BurgerMenu-icon-line"></div>
+            <div class="BurgerMenu-icon-line"></div>
+        </div>
+        <a href="/" class="HeaderLogo">
+            <img src="CHAS.png" alt="CHAS Logo">
+        </a>
+    </div>
+
+    <!-- Socials in the Menu -->
+    <div id="menu" class="menu">
+        <a href="https://www.snapchat.com" target="_blank">
+            <img src="snapchat-logo.png" alt="Snapchat">
+        </a>
+        <a href="https://www.instagram.com/eerlijkste" target="_blank">
+            <img src="instagram-logo.webp" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@eerlijkste1" target="_blank">
+            <img src="tiktok-logo.webp" alt="TikTok">
+        </a>
+    </div>
+
+    <!-- Main Content: Click to Enter -->
+    <div id="clickToEnter" class="click-to-enter" onclick="goToPage()">
+        <span>Click to Enter</span>
+    </div>
+
+    <!-- Email Subscription -->
+    <div class="NewsletterInputWrapper">
+        <input class="Newsletter-email" type="email" name="mail" required="" placeholder="email@example.com">
+        <div class="Newsletter-signup">
+            <div class="Newsletter-signup-border"></div>
+            <input class="Newsletter-submit" type="submit" value="Subscribe">
+        </div>
+    </div>
+
+    <!-- About and Work Pages -->
+    <div class="navigation">
+        <a href="#about" class="about-link">About</a>
+        <a href="#work" class="work-link">Work</a>
+    </div>
+
+    <!-- About Me Page -->
+    <div id="about" class="page-content">
+        <h1>About Me</h1>
+        <p>Content about yourself goes here.</p>
+    </div>
+
+    <!-- Work Page -->
+    <div id="work" class="page-content">
+        <h1>Work</h1>
+        <p>Your work details go here.</p>
+    </div>
+</body>
+</html>
