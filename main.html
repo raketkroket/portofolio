@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spline 3D Viewer</title>
+    <title>Main Page</title>
     <!-- Link to external CSS -->
-    <link rel="stylesheet" href="csss.css">
+    <link rel="stylesheet" href="main.css">
     <!-- Import Orbitron font -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- "Click to Enter" Text -->
-    <div id="enterText">Click to Enter</div>
-
     <!-- Spline 3D Viewer -->
     <div id="sceneContainer">
         <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
         <spline-viewer url="https://prod.spline.design/IRrdpgWPulwAg5bK/scene.splinecode"></spline-viewer>
     </div>
 
-    <!-- Top Right Menu -->
+    <!-- Top Navigation -->
     <nav id="topMenu">
-        <a href="#workSection" id="workLink">Work</a>
-        <a href="#aboutSection" id="aboutLink" class="hidden">About Me</a>
-        <a href="#contactSection" id="contactLink" class="hidden">Contact</a>
+        <a href="#workSection">Work</a>
+        <a href="#aboutSection">About Me</a>
+        <a href="#contactSection">Contact</a>
     </nav>
 
     <!-- Sections -->
@@ -43,6 +40,6 @@
     </section>
 
     <!-- External JavaScript -->
-    <script src="flower.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

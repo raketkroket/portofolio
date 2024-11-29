@@ -1,32 +1,43 @@
-// Get the elements for text and scene container
 const enterText = document.getElementById('enterText');
 const sceneContainer = document.getElementById('sceneContainer');
+const aboutLink = document.getElementById('aboutLink');
+const contactLink = document.getElementById('contactLink');
 
-// Track mouse movement to position the text
-document.addEventListener('mousemove', function(event) {
-    const x = event.clientX;
-    const y = event.clientY;
-
-    // Position the text relative to the cursor
-    enterText.style.left = `${x + 10}px`;  // Adding a small offset for better visibility
-    enterText.style.top = `${y + 10}px`;
+// Mouse Tracking for Text
+document.addEventListener('mousemove', (event) => {
+    enterText.style.left = `${event.clientX + 10}px`;
+    enterText.style.top = `${event.clientY + 10}px`;
 });
 
-// Add a click event to enter the 3D scene
-document.addEventListener('click', function() {
-    // Add a slight scale-up animation on click
-    enterText.classList.add('clicking');
+// "Click to Enter" Functionality
+document.addEventListener('click', () => {
+    enterText.style.opacity = 0; // Fade out text
+    setTimeout(() => {
+        enterText.style.display = 'none'; // Hide text
+        sceneContainer.style.display = 'block'; // Show 3D viewer
+        sceneContainer.style.opacity = 1; // Fade in
+        aboutLink.classList.remove('hidden'); // Show About Me
+        contactLink.classList.remove('hidden'); // Show Contact
+    }, 400);
+});
 
-    // Wait for a short delay before starting the fade-out effect
-    setTimeout(function() {
-        // Fade-out the "Click to Enter" text
-        enterText.style.opacity = 0;
+// Scroll Listener for Active Link Highlight
+document.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('#topMenu a');
+    let currentSection = '';
 
-        // After the fade-out, show the scene with a fade-in effect
-        setTimeout(function() {
-            enterText.style.display = 'none'; // Hide the "Click to Enter" text completely
-            sceneContainer.style.display = 'block'; // Show the 3D scene
-            sceneContainer.style.opacity = 1; // Fade-in the 3D scene
-        }, 400); // Wait until the text has faded out
-    }, 100); // Slight delay before starting the fade-out animation
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 60) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(currentSection)) {
+            link.classList.add('active');
+        }
+    });
 });
