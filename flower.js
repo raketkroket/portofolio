@@ -1,7 +1,9 @@
 const enterText = document.getElementById('enterText');
 const sceneContainer = document.getElementById('sceneContainer');
-const aboutLink = document.getElementById('aboutLink');
-const contactLink = document.getElementById('contactLink');
+const topMenu = document.getElementById('topMenu');
+const workSection = document.getElementById('workSection');
+const aboutSection = document.getElementById('aboutSection');
+const contactSection = document.getElementById('contactSection');
 
 // Mouse Tracking for Text
 document.addEventListener('mousemove', (event) => {
@@ -16,8 +18,14 @@ document.addEventListener('click', () => {
         enterText.style.display = 'none'; // Hide text
         sceneContainer.style.display = 'block'; // Show 3D viewer
         sceneContainer.style.opacity = 1; // Fade in
-        aboutLink.classList.remove('hidden'); // Show About Me
-        contactLink.classList.remove('hidden'); // Show Contact
+        topMenu.style.display = 'flex'; // Show navigation menu
+        
+        // Use a slight delay to avoid sections flashing
+        setTimeout(() => {
+            workSection.style.display = 'flex'; // Show Work section
+            aboutSection.style.display = 'flex'; // Show About section
+            contactSection.style.display = 'flex'; // Show Contact section
+        }, 500); // Delay showing sections for smoother transition
     }, 400);
 });
 

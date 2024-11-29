@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <!-- Import Orbitron font -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- "Click to Enter" Text -->
     <div id="enterText">Click to Enter</div>
@@ -19,30 +21,32 @@
         <spline-viewer url="https://prod.spline.design/IRrdpgWPulwAg5bK/scene.splinecode"></spline-viewer>
     </div>
 
-    <!-- Top Right Menu -->
-    <nav id="topMenu">
+    <!-- Top Right Menu (hidden initially) -->
+    <nav id="topMenu" class="hidden">
         <a href="#workSection" id="workLink">Work</a>
-        <a href="#aboutSection" id="aboutLink" class="hidden">About Me</a>
-        <a href="#contactSection" id="contactLink" class="hidden">Contact</a>
+        <a href="#aboutSection" id="aboutLink">About Me</a>
+        <a href="#contactSection" id="contactLink">Contact</a>
     </nav>
 
-    <!-- Sections -->
-    <section id="workSection">
+    <!-- Sections (hidden initially) -->
+    <section id="workSection" class="hidden">
         <h1>Work</h1>
         <p>Details about my projects and work.</p>
     </section>
 
-    <section id="aboutSection">
+    <section id="aboutSection" class="hidden">
         <h1>About Me</h1>
         <p>Information about me and my journey.</p>
     </section>
 
-    <section id="contactSection">
+    <section id="contactSection" class="hidden">
         <h1>Contact</h1>
         <p>Ways to get in touch with me.</p>
     </section>
 
     <!-- External JavaScript -->
     <script src="flower.js"></script>
+    <script src="js/enter.js"></script>
 </body>
+
 </html>
