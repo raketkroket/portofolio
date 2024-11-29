@@ -1,0 +1,98 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Layout */
+body {
+    font-family: 'Antiqua Roman', serif;
+    background-color: #000;
+    color: white;
+}
+
+.HeaderModule-logoNav {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.HeaderLogo img {
+    width: 120px;
+}
+
+/* Menu */
+.menu {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #000;
+    padding: 20px;
+}
+
+.menu a {
+    margin: 10px;
+}
+
+.BurgerMenu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.BurgerMenu-icon-line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+}
+
+/* Click to Enter Button */
+.click-to-enter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Transition for Menu and Email */
+#clickToEnter {
+    transition: opacity 1s ease;
+}
+
+/* Email Subscription */
+.NewsletterInputWrapper {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.Newslettersubmit {
+    background-color: #00f;
+}
+
+/* Animations for About and Work pages */
+.page-content {
+    display: none;
+}
+
+.page-content h1 {
+    font-size: 2rem;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
