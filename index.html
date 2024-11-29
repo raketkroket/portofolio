@@ -3,66 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chassidy Doest</title>
-    <link rel="stylesheet" href="csss.css">
-    <script src="javaa.js" defer></script>
+    <title>Spline 3D Viewer</title>
+    <!-- Importing Orbitron font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3B372F; /* Dark background color similar to the Spline 3D scene */
+            cursor: pointer;
+        }
+
+        /* Styling the cursor-following text */
+        #enterText {
+            position: absolute;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px; /* Smaller font size */
+            color: #A4947A; /* Beige color for the text */
+            font-weight: 500;
+            pointer-events: none;
+            user-select: none;
+            transition: transform 0.2s ease-out, opacity 0.4s ease-out; /* Smooth transitions */
+            text-transform: uppercase;
+        }
+
+        /* Initially hide the 3D scene */
+        #sceneContainer {
+            display: none;
+            width: 100%;
+            height: 100%;
+            opacity: 0; /* Scene starts hidden */
+            transition: opacity 1s ease-in-out; /* Smooth fade-in for the scene */
+        }
+
+        /* Add a slight "click to enter" text animation */
+        #enterText.clicking {
+            transform: scale(1.1); /* Scale up the text a bit when clicked */
+        }
+    </style>
 </head>
 <body>
-    <!-- Header with 3 lines burger menu -->
-    <div class="HeaderModule-logoNav">
-        <div class="BurgerMenu-icon" onclick="toggleMenu()">
-            <div class="BurgerMenu-icon-line"></div>
-            <div class="BurgerMenu-icon-line"></div>
-            <div class="BurgerMenu-icon-line"></div>
-        </div>
-        <a href="/" class="HeaderLogo">
-            <img src="CHAS.png" alt="CHAS Logo">
-        </a>
+
+    <!-- The "Click to Enter" Text -->
+    <div id="enterText">Click to Enter</div>
+
+    <!-- Container for the Spline 3D Viewer -->
+    <div id="sceneContainer">
+        <!-- Load the Spline viewer module -->
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
+
+        <!-- Embed the Spline 3D scene -->
+        <spline-viewer url="https://prod.spline.design/IRrdpgWPulwAg5bK/scene.splinecode"></spline-viewer>
     </div>
 
-    <!-- Socials in the Menu -->
-    <div id="menu" class="menu">
-        <a href="https://www.snapchat.com" target="_blank">
-            <img src="snapchat-logo.png" alt="Snapchat">
-        </a>
-        <a href="https://www.instagram.com/eerlijkste" target="_blank">
-            <img src="instagram-logo.webp" alt="Instagram">
-        </a>
-        <a href="https://www.tiktok.com/@eerlijkste1" target="_blank">
-            <img src="tiktok-logo.webp" alt="TikTok">
-        </a>
-    </div>
+    <script>
+        // Get the elements for text and scene container
+        const enterText = document.getElementById('enterText');
+        const sceneContainer = document.getElementById('sceneContainer');
 
-    <!-- Main Content: Click to Enter -->
-    <div id="clickToEnter" class="click-to-enter" onclick="goToPage()">
-        <span>Click to Enter</span>
-    </div>
+        // Track mouse movement to position the text
+        document.addEventListener('mousemove', function(event) {
+            const x = event.clientX;
+            const y = event.clientY;
 
-    <!-- Email Subscription -->
-    <div class="NewsletterInputWrapper">
-        <input class="Newsletter-email" type="email" name="mail" required="" placeholder="email@example.com">
-        <div class="Newsletter-signup">
-            <div class="Newsletter-signup-border"></div>
-            <input class="Newsletter-submit" type="submit" value="Subscribe">
-        </div>
-    </div>
+            // Position the text relative to the cursor
+            enterText.style.left = `${x + 10}px`;  // Adding a small offset for better visibility
+            enterText.style.top = `${y + 10}px`;
+        });
 
-    <!-- About and Work Pages -->
-    <div class="navigation">
-        <a href="#about" class="about-link">About</a>
-        <a href="#work" class="work-link">Work</a>
-    </div>
+        // Add a click event to enter the 3D scene
+        document.addEventListener('click', function() {
+            // Add a slight scale-up animation on click
+            enterText.classList.add('clicking');
 
-    <!-- About Me Page -->
-    <div id="about" class="page-content">
-        <h1>About Me</h1>
-        <p>Content about yourself goes here.</p>
-    </div>
+            // Wait for a short delay before starting the fade-out effect
+            setTimeout(function() {
+                // Fade-out the "Click to Enter" text
+                enterText.style.opacity = 0;
 
-    <!-- Work Page -->
-    <div id="work" class="page-content">
-        <h1>Work</h1>
-        <p>Your work details go here.</p>
-    </div>
+                // After the fade-out, show the scene with a fade-in effect
+                setTimeout(function() {
+                    enterText.style.display = 'none'; // Hide the "Click to Enter" text completely
+                    sceneContainer.style.display = 'block'; // Show the 3D scene
+                    sceneContainer.style.opacity = 1; // Fade-in the 3D scene
+                }, 400); // Wait until the text has faded out
+            }, 100); // Slight delay before starting the fade-out animation
+        });
+    </script>
+
 </body>
 </html>
