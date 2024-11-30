@@ -4,8 +4,9 @@ const topMenu = document.getElementById('topMenu');
 const workSection = document.getElementById('workSection');
 const aboutSection = document.getElementById('aboutSection');
 const contactSection = document.getElementById('contactSection');
+const hamburgerMenu = document.getElementById('hamburgerMenu');
 
-// Mouse Tracking for Text
+// Mouse Tracking for "Click to Enter" text
 document.addEventListener('mousemove', (event) => {
     enterText.style.left = `${event.clientX + 10}px`;
     enterText.style.top = `${event.clientY + 10}px`;
@@ -18,8 +19,13 @@ document.addEventListener('click', () => {
         enterText.style.display = 'none'; // Hide text
         sceneContainer.style.display = 'block'; // Show 3D viewer
         sceneContainer.style.opacity = 1; // Fade in
-        topMenu.style.display = 'flex'; // Show navigation menu
         
+        // Add 'display-mode' class to body to make hamburger menu visible
+        document.body.classList.add('display-mode');
+        
+        // Only show the navigation menu after entering display mode
+        topMenu.style.display = 'flex'; // Set to flex to make it visible
+
         // Use a slight delay to avoid sections flashing
         setTimeout(() => {
             workSection.style.display = 'flex'; // Show Work section
@@ -48,4 +54,18 @@ document.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
+});
+
+// Mobile Hamburger Menu Functionality
+hamburgerMenu.addEventListener('click', () => {
+    // Toggle the 'active' class for the top menu on mobile
+    topMenu.classList.toggle('active'); // This will toggle the visibility of the top menu
+});
+
+// Initially hide the top menu on the "Click to Enter" page (before "Enter" click)
+document.addEventListener('DOMContentLoaded', () => {
+    if (!document.body.classList.contains('display-mode')) {
+        // Hide the navigation menu initially (on the "Click to Enter" page)
+        topMenu.style.display = 'none'; // Hide the navigation menu
+    }
 });

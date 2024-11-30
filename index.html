@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spline 3D Viewer</title>
-    <!-- Link to external CSS -->
     <link rel="stylesheet" href="csss.css">
-    <!-- Import Orbitron font -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- "Click to Enter" Text -->
+
+    <!-- "Click to Enter" Text (Visible on initial page) -->
     <div id="enterText">Click to Enter</div>
 
-    <!-- Spline 3D Viewer -->
-    <div id="sceneContainer">
+    <!-- Spline 3D Viewer (Hidden initially) -->
+    <div id="sceneContainer" class="hidden">
         <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
         <spline-viewer url="https://prod.spline.design/IRrdpgWPulwAg5bK/scene.splinecode"></spline-viewer>
     </div>
 
-    <!-- Top Right Menu (hidden initially) -->
+    <!-- Mobile Hamburger Menu Button (Hidden initially) -->
+    <div id="hamburgerMenu" class="hidden">
+        <span>&#9776;</span>
+    </div>
+
+    <!-- Top Right Menu (Hidden initially, visible after entering display mode) -->
     <nav id="topMenu" class="hidden">
         <a href="#workSection" id="workLink">Work</a>
         <a href="#aboutSection" id="aboutLink">About Me</a>
         <a href="#contactSection" id="contactLink">Contact</a>
     </nav>
 
-    <!-- Sections (hidden initially) -->
+    <!-- Sections (Hidden initially, visible after "Click to Enter") -->
     <section id="workSection" class="hidden">
         <h1>Work</h1>
         <p>Details about my projects and work.</p>
@@ -44,9 +46,8 @@
         <p>Ways to get in touch with me.</p>
     </section>
 
-    <!-- External JavaScript -->
     <script src="flower.js"></script>
     <script src="js/enter.js"></script>
-</body>
 
+</body>
 </html>

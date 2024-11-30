@@ -29,6 +29,9 @@ body {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Navigation Menu */
@@ -40,9 +43,14 @@ body {
     flex-direction: column;
     gap: 10px;
     z-index: 100;
-    display: none; /* Initially hidden */
+    
+    /* Initially hide the navigation menu on mobile */
+    visibility: hidden; /* Hidden initially */
+    opacity: 0; /* Invisible initially */
+    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Transition opacity */
 }
 
+/* Links inside the navigation */
 #topMenu a {
     text-decoration: none;
     color: white;
@@ -53,11 +61,13 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Hover state for links */
 #topMenu a:hover {
     background-color: white;
     color: #3B372F;
 }
 
+/* Active link */
 #topMenu a.active {
     background-color: white;
     color: #3B372F;
@@ -78,31 +88,84 @@ section {
     text-align: center;
 }
 
-#workSection {
-    background-color: #4A4235;
-}
+/* Specific section styles */
+#workSection { background-color: #4A4235; }
+#aboutSection { background-color: #5C5145; }
+#contactSection { background-color: #6D6255; }
 
-#aboutSection {
-    background-color: #5C5145;
-}
-
-#contactSection {
-    background-color: #6D6255;
-}
-
-section h1 {
-    font-size: 36px;
-}
-
+/* Section text styles */
+section h1 { font-size: 36px; }
 section p {
     font-size: 18px;
     max-width: 600px;
     line-height: 1.6;
 }
 
-/* Highlight Active Link */
-#topMenu a.active {
-    font-weight: bold;
-    background-color: white;
-    color: #3B372F;
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Initially hide the original navigation menu */
+    #topMenu {
+        display: none; /* Hidden on mobile */
+    }
+
+    /* Show the hamburger menu on mobile */
+    #hamburgerMenu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 101;
+    }
+
+    /* Display sections in a column on mobile */
+    section {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+    }
+
+    section h1 {
+        font-size: 28px;
+    }
+
+    section p {
+        font-size: 16px;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    /* Center the 3D scene container on mobile */
+    #sceneContainer {
+        display: flex; /* Flexbox to center */
+        justify-content: center; /* Horizontally center */
+        align-items: center; /* Vertically center */
+        width: 100vw; /* Take full width of the viewport */
+        height: 100vh; /* Take full height of the viewport */
+    }
+}
+
+/* Initially hide the hamburger menu on the "Click to Enter" page */
+#hamburgerMenu {
+    display: none;  /* Hidden by default */
+}
+
+/* When the page is in display mode (after the "Click to Enter" is clicked) */
+body.display-mode #hamburgerMenu {
+    display: block;  /* Show hamburger menu */
+}
+
+/* When the hamburger menu is clicked (on mobile), the top menu becomes visible */
+#topMenu.active {
+    visibility: visible; /* Make the menu visible */
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.3s ease, visibility 0s 0s; /* Ensure visibility change happens instantly */
+}
+
+/* Optional: Additional styling for the hamburger menu */
+#hamburgerMenu.active {
+    transform: rotate(90deg); /* Example animation for the hamburger icon */
 }
