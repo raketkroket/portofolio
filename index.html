@@ -2,55 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>CHAS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
     <link rel="stylesheet" href="csss.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/IRrdpgWPulwAg5bK/scene.splinecode"></spline-viewer>
 </head>
 <body>
-
-    <!-- "Click to Enter" Text (Visible on initial page) -->
-    <div id="enterText">Click to Enter</div>
-
-    <!-- Spline 3D Viewer (Hidden initially) -->
-    <div id="sceneContainer" class="hidden">
-        <!-- Add your Spline model here -->
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
+    <!-- Your main content -->
+    <div id="sceneContainer">
         <spline-viewer url="https://prod.spline.design/IRrdpgWPulwAg5bK/scene.splinecode"></spline-viewer>
-        <!-- Fallback message if model fails to load -->
-        <p id="fallbackMessage" class="hidden">Failed to load the 3D model. Please try again later.</p>
     </div>
 
-    <!-- Mobile Hamburger Menu Button (Hidden initially) -->
-    <div id="hamburgerMenu" class="hidden" aria-label="Open Navigation">
-        <span>&#9776;</span>
-    </div>
-
-    <!-- Top Right Menu (Hidden initially, visible after entering display mode) -->
-    <nav id="topMenu" class="hidden">
-        <a href="#workSection" id="workLink" aria-label="Work section">Work</a>
-        <a href="#aboutSection" id="aboutLink" aria-label="About me section">About Me</a>
-        <a href="#contactSection" id="contactLink" aria-label="Contact section">Contact</a>
+    <nav id="topMenu">
+        <a href="#workSection">Work</a>
+        <a href="#aboutSection">About Me</a>
+        <a href="#contactSection">Contact</a>
     </nav>
 
-    <!-- Sections (Hidden initially, visible after "Click to Enter") -->
-    <section id="workSection" class="hidden">
+    <section id="workSection">
         <h1>Work</h1>
         <p>Details about my projects and work.</p>
     </section>
 
-    <section id="aboutSection" class="hidden">
+    <section id="aboutSection">
         <h1>About Me</h1>
         <p>Information about me and my journey.</p>
     </section>
 
-    <section id="contactSection" class="hidden">
+    <section id="contactSection">
         <h1>Contact</h1>
         <p>Ways to get in touch with me.</p>
     </section>
-
-    <script src="flower.js"></script>
-    <script src="js/enter.js"></script>
-
 </body>
 </html>

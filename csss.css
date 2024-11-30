@@ -40,8 +40,13 @@ body {
     font-size: 18px;
     text-align: center;
     font-weight: bold;
+    position: absolute;  /* Position it centrally */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: opacity 0.5s ease;
 }
+
 
 /* Navigation Menu */
 #topMenu {
@@ -151,8 +156,13 @@ section p {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100vw;
-        height: 100vh;
+        width: 100vw;  /* Full width of the viewport */
+        height: 100vh; /* Full height of the viewport */
+        opacity: 0;
+        transition: opacity 1s ease;
+        position: absolute;  /* Ensure it's positioned relative to the screen */
+        top: 0;  /* Start from the top of the page */
+        left: 0; /* Start from the left of the page */
     }
 }
 

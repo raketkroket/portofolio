@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         enterText.style.opacity = 0; // Fade out text
         setTimeout(() => {
             enterText.style.display = 'none'; // Hide text
-            sceneContainer.style.display = 'block'; // Show 3D viewer
+            sceneContainer.style.display = 'flex'; // Ensure it's set to flex for centering
             sceneContainer.style.opacity = 1; // Fade in
             document.body.classList.add('display-mode');
             
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             splineViewer.addEventListener('error', () => {
                 fallbackMessage.classList.remove('hidden');
             });
-            
+
             topMenu.style.display = 'flex'; // Set to flex to make it visible
 
             setTimeout(() => {
@@ -37,31 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactSection.style.display = 'flex'; // Show Contact section
             }, 500); // Delay for smoother transition
         }, 400);
-    });
-
-    // Scroll Listener for Active Link Highlight with Debounce
-    let debounceTimeout;
-    document.addEventListener('scroll', () => {
-        clearTimeout(debounceTimeout);
-        debounceTimeout = setTimeout(() => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('#topMenu a');
-            let currentSection = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 60) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(currentSection)) {
-                    link.classList.add('active');
-                }
-            });
-        }, 100); // Debounce timeout
     });
 
     // Mobile Hamburger Menu Functionality
