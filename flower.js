@@ -1,3 +1,4 @@
+// Get elements
 const enterText = document.getElementById('enterText');
 const sceneContainer = document.getElementById('sceneContainer');
 const topMenu = document.getElementById('topMenu');
@@ -23,16 +24,16 @@ document.addEventListener('click', () => {
         // Add 'display-mode' class to body to make hamburger menu visible
         document.body.classList.add('display-mode');
         
-        // Only show the navigation menu after entering display mode
+        // Show navigation menu after entering display mode
         topMenu.style.display = 'flex'; // Set to flex to make it visible
 
-        // Use a slight delay to avoid sections flashing
+        // Smoothly show sections
         setTimeout(() => {
             workSection.style.display = 'flex'; // Show Work section
             aboutSection.style.display = 'flex'; // Show About section
             contactSection.style.display = 'flex'; // Show Contact section
         }, 500); // Delay showing sections for smoother transition
-    }, 400);
+    }, 400); // Fade-out time for the "Click to Enter" text
 });
 
 // Scroll Listener for Active Link Highlight
@@ -41,13 +42,16 @@ document.addEventListener('scroll', () => {
     const navLinks = document.querySelectorAll('#topMenu a');
     let currentSection = '';
 
+    // Determine which section is in view
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 60) {
+        const sectionBottom = sectionTop + section.offsetHeight;
+        if (window.scrollY >= sectionTop - 60 && window.scrollY < sectionBottom - 60) {
             currentSection = section.getAttribute('id');
         }
     });
 
+    // Highlight the active link based on the current section in view
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').includes(currentSection)) {
