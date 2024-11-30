@@ -34,6 +34,15 @@ body {
     align-items: center;
 }
 
+/* Fallback message for failed 3D load */
+#fallbackMessage {
+    color: #ff4d4d;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    transition: opacity 0.5s ease;
+}
+
 /* Navigation Menu */
 #topMenu {
     position: absolute;
@@ -43,11 +52,9 @@ body {
     flex-direction: column;
     gap: 10px;
     z-index: 100;
-    
-    /* Initially hide the navigation menu on mobile */
-    visibility: hidden; /* Hidden initially */
-    opacity: 0; /* Invisible initially */
-    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Transition opacity */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
 }
 
 /* Links inside the navigation */
@@ -80,12 +87,13 @@ body {
 
 /* Hide sections initially */
 section {
-    display: none; /* Hide sections initially */
+    display: none;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* Specific section styles */
@@ -105,7 +113,7 @@ section p {
 @media (max-width: 768px) {
     /* Initially hide the original navigation menu */
     #topMenu {
-        display: none; /* Hidden on mobile */
+        display: none;
     }
 
     /* Show the hamburger menu on mobile */
@@ -140,32 +148,32 @@ section p {
 
     /* Center the 3D scene container on mobile */
     #sceneContainer {
-        display: flex; /* Flexbox to center */
-        justify-content: center; /* Horizontally center */
-        align-items: center; /* Vertically center */
-        width: 100vw; /* Take full width of the viewport */
-        height: 100vh; /* Take full height of the viewport */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
     }
 }
 
 /* Initially hide the hamburger menu on the "Click to Enter" page */
 #hamburgerMenu {
-    display: none;  /* Hidden by default */
+    display: none;
 }
 
 /* When the page is in display mode (after the "Click to Enter" is clicked) */
 body.display-mode #hamburgerMenu {
-    display: block;  /* Show hamburger menu */
+    display: block;
 }
 
 /* When the hamburger menu is clicked (on mobile), the top menu becomes visible */
 #topMenu.active {
-    visibility: visible; /* Make the menu visible */
-    opacity: 1; /* Fully visible */
-    transition: opacity 0.3s ease, visibility 0s 0s; /* Ensure visibility change happens instantly */
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0s 0s;
 }
 
 /* Optional: Additional styling for the hamburger menu */
 #hamburgerMenu.active {
-    transform: rotate(90deg); /* Example animation for the hamburger icon */
+    transform: rotate(90deg);
 }

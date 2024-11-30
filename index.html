@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>CHAS</title>
     <link rel="stylesheet" href="csss.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,18 +16,20 @@
     <div id="sceneContainer" class="hidden">
         <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
         <spline-viewer url="https://prod.spline.design/IRrdpgWPulwAg5bK/scene.splinecode"></spline-viewer>
+        <!-- Fallback message if model fails to load -->
+        <p id="fallbackMessage" class="hidden">Failed to load the 3D model. Please try again later.</p>
     </div>
 
     <!-- Mobile Hamburger Menu Button (Hidden initially) -->
-    <div id="hamburgerMenu" class="hidden">
+    <div id="hamburgerMenu" class="hidden" aria-label="Open Navigation">
         <span>&#9776;</span>
     </div>
 
     <!-- Top Right Menu (Hidden initially, visible after entering display mode) -->
     <nav id="topMenu" class="hidden">
-        <a href="#workSection" id="workLink">Work</a>
-        <a href="#aboutSection" id="aboutLink">About Me</a>
-        <a href="#contactSection" id="contactLink">Contact</a>
+        <a href="#workSection" id="workLink" aria-label="Work section">Work</a>
+        <a href="#aboutSection" id="aboutLink" aria-label="About me section">About Me</a>
+        <a href="#contactSection" id="contactLink" aria-label="Contact section">Contact</a>
     </nav>
 
     <!-- Sections (Hidden initially, visible after "Click to Enter") -->
