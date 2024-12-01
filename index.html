@@ -2,37 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
-    <link rel="stylesheet" href="csss.css">
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
-<spline-viewer url="https://prod.spline.design/IRrdpgWPulwAg5bK/scene.splinecode"></spline-viewer>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>3D Viewer Transition</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #3B372F;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease;
+        }
+        #firstViewer, #secondViewer {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease;
+        }
+        spline-viewer {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
-    <!-- Your main content -->
-    <div id="sceneContainer">
+    <!-- First Spline Viewer -->
+    <div id="firstViewer">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/5E8MfNwZlkjMoa6l/scene.splinecode"></spline-viewer>
+    </div>
+
+    <!-- Second Spline Viewer -->
+    <div id="secondViewer" class="hidden">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
         <spline-viewer url="https://prod.spline.design/IRrdpgWPulwAg5bK/scene.splinecode"></spline-viewer>
     </div>
 
-    <nav id="topMenu">
-        <a href="#workSection">Work</a>
-        <a href="#aboutSection">About Me</a>
-        <a href="#contactSection">Contact</a>
-    </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstViewer = document.getElementById('firstViewer');
+            const secondViewer = document.getElementById('secondViewer');
 
-    <section id="workSection">
-        <h1>Work</h1>
-        <p>Details about my projects and work.</p>
-    </section>
-
-    <section id="aboutSection">
-        <h1>About Me</h1>
-        <p>Information about me and my journey.</p>
-    </section>
-
-    <section id="contactSection">
-        <h1>Contact</h1>
-        <p>Ways to get in touch with me.</p>
-    </section>
+            // Add click event to the first viewer
+            firstViewer.addEventListener('click', () => {
+                // Wait 3 seconds and then switch to the second viewer
+                setTimeout(() => {
+                    firstViewer.classList.add('hidden'); // Hide the first viewer
+                    secondViewer.classList.remove('hidden'); // Show the second viewer
+                }, 3000);
+            });
+        });
+    </script>
 </body>
 </html>
