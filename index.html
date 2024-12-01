@@ -11,22 +11,22 @@
             background-color: #3B372F;
             overflow: hidden;
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             transition: opacity 1s ease;
         }
         #firstViewer, #secondViewer {
             width: 100vw;
             height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: absolute;
             top: 0;
             left: 0;
+            transition: opacity 1s ease;
         }
         .hidden {
             opacity: 0;
             pointer-events: none;
-            transition: opacity 1s ease;
         }
         spline-viewer {
             width: 100%;
