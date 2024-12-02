@@ -21,6 +21,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative; /* Ensure it's a stacking context for z-index */
         }
 
         spline-viewer {
@@ -33,7 +34,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            z-index: 10;
+            z-index: 20; /* Ensure it stays above other elements */
             cursor: pointer;
             display: flex;
             flex-direction: column;
@@ -71,7 +72,7 @@
             height: 100vh;
             background-color: rgba(32, 28, 24, 0.9);
             color: white;
-            z-index: 10;
+            z-index: 15; /* Ensure it's below the menu button but above viewer */
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -107,7 +108,7 @@
             <span></span>
         </div>
         <div class="menu-content" id="menuContent">
-            <a href="index.html">Back</a>
+            <a href="secondviewer.html">Go back</a>
             <a href="WORK.html">WORK</a>
             <a href="CONTACT.html">CONTACT</a>
         </div>
