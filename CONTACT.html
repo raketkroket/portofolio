@@ -2,23 +2,218 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Contact Us</title>
+    <!-- Social Links -->
+     <a href="#secondViewer">
+    <img src="logosigma.png" alt="Logo" class="logo">
+</a>
+
+<!-- Second Spline Viewer Section -->
+<div id="secondViewer" class="hidden">
+    <!-- Your second Spline viewer content here -->
+</div>
+
+<div class="social-links">
+
+    <!-- Instagram Logo -->
+    <a href="https://instagram.com/eerlijkste" target="_blank">
+        <img src="https://ouch-cdn2.icons8.com/_US60I188UuoRurpJ9lfFmfp5baT-Gtp3bghSn-AOL8/rs:fit:456:456/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvOTI0/L2NjYjgwMjlkLWZh/NWMtNDU5Yy05YjBk/LWI0Yzg2MzI3Zjc0/Mi5wbmc.png" alt="Instagram" class="social-logo">
+    </a>
+    
+</div>
+
     <style>
+        /* Social logo styling */
+.social-logo {
+    margin-top: 40px;
+    width: 80px;  /* Adjust size of the Instagram logo */
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-logo:hover {
+    transform: scale(1.5); /* Slightly enlarge the logo on hover */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;  /* Adjusted gap between icons */
+    position: relative;
+    top: -30px;
+}
+
+        .logo {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    width: 150px; /* Adjust width of logo */
+    height: auto;
+    z-index: 20; /* Makes sure the logo stays above other content */
+}
+        /* Reset some defaults */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #605747; /* Background color */
+            color: #fff;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #3B372F;
-            color: white;
+            flex-direction: column;
         }
+
+        .container {
+            width: 90%;
+            max-width: 500px;  /* Reduced width */
+            padding: 20px;  /* Reduced padding */
+            background: linear-gradient(145deg, #a1947d, #47423a);
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.2), -8px -8px 15px rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 28px;  /* Reduced font size */
+            font-weight: 600;
+        }
+
+        .email-container {
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            padding: 15px;  /* Reduced padding */
+            margin-bottom: 20px;  /* Reduced margin */
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .email-container h3 {
+            margin: 0;
+            font-size: 20px;  /* Reduced font size */
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .email-container a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;  /* Reduced font size */
+            transition: color 0.3s ease;
+        }
+
+        .email-container a:hover {
+            color: #ffffff;
+        }
+
+        .contact-form {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 15px;  /* Reduced padding */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;  /* Reduced padding */
+            margin: 8px 0;  /* Reduced margin */
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: transparent;
+            color: #fff;
+            font-size: 14px;  /* Reduced font size */
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #8d7f66;
+            box-shadow: 0 0 10px rgba(141, 127, 102, 0.5);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;  /* Reduced padding */
+            background-color: #8d7f66;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;  /* Reduced font size */
+            margin-top: 15px;  /* Reduced margin */
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #7a6a4e;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;  /* Reduced gap */
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 18px;  /* Reduced font size */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #8d7f66;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+        /* Logo in the top left corner */
+
+
     </style>
 </head>
 <body>
-    <h1>Welcome to the Contact Page</h1>
+    <img src="logosigma.png" alt="Logo" class="logo">
+    <div class="container">
+        <h1>Contact Us</h1>
+
+   
+        
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form action="#" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        
+           
+
+        </div>
+    </div>
 </body>
 </html>

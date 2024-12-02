@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>CHAS</title>
+    
     <style>
+        .logo {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    width: 160px; /* Adjust width of logo */
+    height: auto;
+    z-index: 20; /* Makes sure the logo stays above other content */
+}
+
         body {
             margin: 0;
             padding: 0;
@@ -123,9 +133,13 @@
                 font-size: 1.5rem;
             }
         }
+        /* Logo in the top left corner */
+
     </style>
 </head>
 <body>
+    <img src="logosigma.png" alt="Logo" class="logo">
+
     <!-- First Spline Viewer -->
     <div id="firstViewer">
         <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
