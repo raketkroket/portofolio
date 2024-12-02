@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #3B372F;
+            overflow: hidden;
+            height: 100vh;
+            transition: opacity 1s ease;
+            opacity: 0;
+        }
+
+        #secondViewer {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        spline-viewer {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Hamburger menu styles */
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+        }
+
+        .menu span {
+            background-color: white;
+            height: 4px;
+            width: 100%;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .menu-content {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(32, 28, 24, 0.9);
+            color: white;
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .menu-content.open {
+            display: flex;
+        }
+
+        .menu-content a {
+            font-size: 2rem;
+            color: white;
+            text-decoration: none;
+            margin: 15px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .menu-content a:hover {
+            color: #7c5e41;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Second Viewer -->
+    <div id="secondViewer">
+        <!-- Hamburger Menu -->
+        <div class="menu" id="menuButton">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu-content" id="menuContent">
+            <a href="index.html">Go back</a>
+            <a href="WORK.html">WORK</a>
+            <a href="CONTACT.html">CONTACT</a>
+        </div>
+
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.46/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/IRrdpgWPulwAg5bK/scene.splinecode"></spline-viewer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menuButton');
+            const menuContent = document.getElementById('menuContent');
+
+            // Fade in on load
+            document.body.style.opacity = 1;
+
+            // Toggle hamburger menu
+            menuButton.addEventListener('click', () => {
+                const isOpen = menuButton.classList.contains('open');
+                menuButton.classList.toggle('open', !isOpen);
+                menuContent.classList.toggle('open', !isOpen);
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!menuContent.contains(e.target) && !menuButton.contains(e.target)) {
+                    menuButton.classList.remove('open');
+                    menuContent.classList.remove('open');
+                }
+            });
+
+            // Smooth page transition on link click
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const href = link.getAttribute('href');
+                    document.body.style.opacity = 0;
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
