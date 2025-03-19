@@ -1,0 +1,72 @@
+/* Centering everything on the page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+#loading-container {
+    position: absolute;
+    z-index: 2; /* Keep the loading content on top of the Spline */
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Spinner loader styles */
+.spinner {
+    border: 16px solid #f3f3f3;  /* Light grey background */
+    border-top: 16px solid #00bcd4;  /* Blue color for the spinner */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;  /* Infinite spinning animation */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Spline container initially hidden */
+#spline-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Ensure the Spline viewer is behind the loader */
+}
+
+/* Optional: Percentage text */
+#percentage-container {
+    font-size: 30px;
+    z-index: 2;
+    margin-top: 20px;
+}
+#square {
+    position: absolute;
+    bottom: 20px;  /* Adjust the distance from the bottom */
+    right: 20px;   /* Adjust the distance from the right */
+    width: 200px;   /* Width of the square */
+    height: 50px;  /* Height of the square */
+    background-color: #2F2F2F;  /* Square color */
+    z-index: 3;   /* Make sure it’s on top of other elements */
+}

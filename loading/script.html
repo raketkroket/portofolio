@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <div id="loading-container">
+        <!-- Embed Spline viewer -->
+   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.79/build/spline-viewer.js"></script>
+                <spline-viewer url="https://prod.spline.design/HlvNPdwYTAvTtXWN/scene.splinecode"></spline-viewer>"></spline-viewer>
+        </div>
+
+        <!-- Percentage Text -->
+        <div id="percentage-container">
+            <p id="percentage">0%</p>
+        </div>
+        
+        <!-- Loading bar -->
+        <div id="loading-bar">
+            <div id="loading-progress"></div>
+        </div>
+    </div>
+    <div id="square"></div>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.79/build/spline-viewer.js"></script>
+    <script src="scripting.js"></script>
+</body>
+</html>
