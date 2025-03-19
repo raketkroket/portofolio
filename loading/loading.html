@@ -31,3 +31,10 @@
     <script src="scripting.js"></script>
 </body>
 </html>
+<!-- Redirect to loading.html -->
+<script>
+    if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
+        window.location.href = "/loading.html";  // Change '/loading.html' to match your actual path if needed
+    }
+</script>
+

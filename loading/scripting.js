@@ -18,7 +18,7 @@ const loadingInterval = setInterval(() => {
 
         // After a delay (fade transition), redirect to index.html
         setTimeout(() => {
-            window.location.href = 'index.html'; // Change this to your main page URL
+            window.location.href = 'script.html'; // Change this to your main page URL
         }, 1000); // Wait 1 second for the fade effect
     }
 }, 50); // Change 50 for different loading speeds (lower = faster)
